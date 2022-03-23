@@ -4,6 +4,7 @@ const WordsWidget = () => {
     let theWordCount = ""
     let wordLength = []
     let error = ""
+    let duplicate = ""
 
     if (localStorage['sentences']) {
         sentenceList = JSON.parse(localStorage.getItem('sentences'));
@@ -61,8 +62,9 @@ const WordsWidget = () => {
                 highlightWord(sentence, range)
                 error = ""
             }
-            else error = "this sentence has already been analyzed",
-                theWordCount = ""
+            else duplicate = "this sentence has already been analyzed",
+                theWordCount = "",
+                error = ""
         }
         else {
             analyzedSentence = ""
@@ -140,6 +142,8 @@ const WordsWidget = () => {
 
     const errorMessage = () => error
 
+    const duplicateMessage = () => duplicate
+
 
     return {
         highlightWord,
@@ -150,5 +154,6 @@ const WordsWidget = () => {
         returnAnalyzedSentence,
         returnTheWordCount,
         errorMessage,
+        duplicateMessage
     }
 }

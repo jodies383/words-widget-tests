@@ -75,7 +75,7 @@ describe('The Words Widget', function () {
             wordsInit.analyzeSentence('The quick brown fox jumped over the fence', 4)
             wordsInit.analyzeSentence('The quick brown fox jumped over the fence', 4)
 
-            assert.deepEqual(('this sentence has already been analyzed'), wordsInit.errorMessage());
+            assert.deepEqual(('this sentence has already been analyzed'), wordsInit.duplicateMessage());
         });
     });
 });
